@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  *
  * @author Alex_PC
  */
-//PRUEBA DE PUBLICACION 01 ALEX
+//PRUEBA DE PUBLICACION 02 ALEX
 public class PrincipalUI extends javax.swing.JFrame {
 
     /**
@@ -50,9 +50,9 @@ private void initConfig(){
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenu13 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mnAlmacen = new javax.swing.JMenu();
         mnAgregaProductos = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -109,18 +109,18 @@ private void initConfig(){
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/clientes.png"))); // NOI18N
         jMenu8.setText("Clientes");
 
-        jMenu13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/ncliente.png"))); // NOI18N
-        jMenu13.setText("Nuevo Cliente");
-        jMenu8.add(jMenu13);
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/ncliente.png"))); // NOI18N
+        jMenuItem1.setText("Nuevo Cliente");
+        jMenu8.add(jMenuItem1);
 
         jMenuBar1.add(jMenu8);
 
         jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/proveedores.png"))); // NOI18N
         jMenu9.setText("Proveedores");
 
-        jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/nproveedor.png"))); // NOI18N
-        jMenu12.setText("Nuevo Proveedor");
-        jMenu9.add(jMenu12);
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/nproveedor.png"))); // NOI18N
+        jMenuItem4.setText("Nuevo Proveedor");
+        jMenu9.add(jMenuItem4);
 
         jMenuBar1.add(jMenu9);
 
@@ -191,8 +191,6 @@ private void initConfig(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane PnlDesktop;
     private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -204,8 +202,10 @@ private void initConfig(){
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem mnAgregaProductos;
     private javax.swing.JMenu mnAlmacen;
     private javax.swing.JMenuItem mnNuevaVenta;
