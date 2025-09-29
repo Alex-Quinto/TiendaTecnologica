@@ -5,7 +5,11 @@
  */
 package com.sise.TiendaTecnologica.ui;
 
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -21,7 +25,14 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
      */
     public NuevaVentaUI() {
         initComponents();
+        initConfig();
     }
+    
+    private void initConfig(){
+        pnlContenedorProductos.setLayout(new BoxLayout(pnlContenedorProductos, BoxLayout.Y_AXIS));
+        pnlProductos.setViewportView(pnlContenedorProductos);
+    }
+    
     private void agregaProducto(String nombre,double precio) {
         JPanel pnlItem = new JPanel(new GridLayout(1,2));
         JLabel lblDescripcion = new JLabel(nombre);
@@ -31,9 +42,12 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
         pnlItem.add(lblDescripcion);
         pnlItem.add(lblPrecio);
         
-        pnlProductos.add(pnlItem);
-        pnlProductos.revalidate();
-        pnlProductos.repaint();
+        pnlItem.setAlignmentX(Component.LEFT_ALIGNMENT);
+        pnlItem.setMaximumSize(new Dimension(Integer.MAX_VALUE, pnlItem.getPreferredSize().height));
+        
+        pnlContenedorProductos.add(pnlItem);
+        pnlContenedorProductos.revalidate();
+        pnlContenedorProductos.repaint();
     }
 
     /**
@@ -46,6 +60,7 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlProductos = new javax.swing.JScrollPane();
+        pnlContenedorProductos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -59,6 +74,19 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
         txtCodigoProducto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
+        javax.swing.GroupLayout pnlContenedorProductosLayout = new javax.swing.GroupLayout(pnlContenedorProductos);
+        pnlContenedorProductos.setLayout(pnlContenedorProductosLayout);
+        pnlContenedorProductosLayout.setHorizontalGroup(
+            pnlContenedorProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 253, Short.MAX_VALUE)
+        );
+        pnlContenedorProductosLayout.setVerticalGroup(
+            pnlContenedorProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 324, Short.MAX_VALUE)
+        );
+
+        pnlProductos.setViewportView(pnlContenedorProductos);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Cliente:");
@@ -93,6 +121,11 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
                 txtCodigoProductoActionPerformed(evt);
             }
         });
+        txtCodigoProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCodigoProductoKeyPressed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Cancelar");
@@ -118,9 +151,9 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -129,7 +162,7 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 44, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -165,11 +198,12 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(jLabel8)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel8)))
                 .addContainerGap())
         );
 
@@ -181,10 +215,15 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void txtCodigoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProductoActionPerformed
-
-        agregaProducto("Laptop HP", 2300);
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtCodigoProductoActionPerformed
+
+    private void txtCodigoProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoProductoKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        agregaProducto("computadora", 1400);
+        txtCodigoProducto.setText("");
+        }
+    }//GEN-LAST:event_txtCodigoProductoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,7 +239,9 @@ public class NuevaVentaUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel pnlContenedorProductos;
     private javax.swing.JScrollPane pnlProductos;
     private javax.swing.JTextField txtCodigoProducto;
     // End of variables declaration//GEN-END:variables
+
 }

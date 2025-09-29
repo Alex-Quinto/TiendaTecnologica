@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  *
  * @author Alex_PC
  */
-//PRUEBA DE PUBLICACION 02 ALEX
+//PRUEBA DE PUBLICACION 02 ALEX ALEX..
 public class PrincipalUI extends javax.swing.JFrame {
 
     /**
