@@ -1,6 +1,7 @@
 package com.sise.TiendaTecnologica.ui;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -44,19 +45,14 @@ private void initConfig(){
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         PnlDesktop = new javax.swing.JDesktopPane();
+        btnsalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         mnNuevaVenta = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu9 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnnuevocliente = new javax.swing.JMenuItem();
         mnAlmacen = new javax.swing.JMenu();
         mnAgregaProductos = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
 
         jMenu4.setText("File");
         jMenuBar2.add(jMenu4);
@@ -72,15 +68,31 @@ private void initConfig(){
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/cerrar.png"))); // NOI18N
+        btnsalir.setText("Salir");
+        btnsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalirActionPerformed(evt);
+            }
+        });
+
+        PnlDesktop.setLayer(btnsalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout PnlDesktopLayout = new javax.swing.GroupLayout(PnlDesktop);
         PnlDesktop.setLayout(PnlDesktopLayout);
         PnlDesktopLayout.setHorizontalGroup(
             PnlDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 643, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlDesktopLayout.createSequentialGroup()
+                .addContainerGap(553, Short.MAX_VALUE)
+                .addComponent(btnsalir)
+                .addContainerGap())
         );
         PnlDesktopLayout.setVerticalGroup(
             PnlDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlDesktopLayout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
+                .addComponent(btnsalir)
+                .addContainerGap())
         );
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/ventas.png"))); // NOI18N
@@ -97,32 +109,19 @@ private void initConfig(){
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/compras.png"))); // NOI18N
-        jMenu3.setText("Compras");
-
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/ncompras.png"))); // NOI18N
-        jMenuItem3.setText("Nueva Compra");
-        jMenu3.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu3);
-
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/clientes.png"))); // NOI18N
         jMenu8.setText("Clientes");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/ncliente.png"))); // NOI18N
-        jMenuItem1.setText("Nuevo Cliente");
-        jMenu8.add(jMenuItem1);
+        mnnuevocliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/ncliente.png"))); // NOI18N
+        mnnuevocliente.setText("Nuevo Cliente");
+        mnnuevocliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnnuevoclienteActionPerformed(evt);
+            }
+        });
+        jMenu8.add(mnnuevocliente);
 
         jMenuBar1.add(jMenu8);
-
-        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/proveedores.png"))); // NOI18N
-        jMenu9.setText("Proveedores");
-
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/nproveedor.png"))); // NOI18N
-        jMenuItem4.setText("Nuevo Proveedor");
-        jMenu9.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu9);
 
         mnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/almacen.png"))); // NOI18N
         mnAlmacen.setText("Almacen");
@@ -136,20 +135,7 @@ private void initConfig(){
         });
         mnAlmacen.add(mnAgregaProductos);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/nservicio.png"))); // NOI18N
-        jMenuItem2.setText("Agreagar Servicio");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        mnAlmacen.add(jMenuItem2);
-
         jMenuBar1.add(mnAlmacen);
-
-        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sise/TiendaTecnologica/assets/cerrar.png"))); // NOI18N
-        jMenu11.setText("Salir");
-        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
@@ -173,15 +159,30 @@ private void initConfig(){
       PnlDesktop.add(nuevaventaUI);
     }//GEN-LAST:event_mnNuevaVentaActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void mnAgregaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAgregaProductosActionPerformed
       AgregaProductosUI agregaProductosUI = new AgregaProductosUI();
       agregaProductosUI.setVisible(true);
       PnlDesktop.add(agregaProductosUI);
     }//GEN-LAST:event_mnAgregaProductosActionPerformed
+
+    private void mnnuevoclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnnuevoclienteActionPerformed
+        // TODO add your handling code here:
+      NuevoClienteUI nuevoClienteUI = new NuevoClienteUI();
+      nuevoClienteUI.setVisible(true);
+      PnlDesktop.add(nuevoClienteUI);
+    }//GEN-LAST:event_mnnuevoclienteActionPerformed
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        // TODO add your handling code here:
+         int confirm = JOptionPane.showConfirmDialog(this, 
+        "¿Desea cerrar esta ventana?", 
+        "Confirmar salida", 
+        JOptionPane.YES_NO_OPTION);
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        dispose();
+    }
+    }//GEN-LAST:event_btnsalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,24 +191,19 @@ private void initConfig(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane PnlDesktop;
-    private javax.swing.JMenu jMenu11;
+    private javax.swing.JButton btnsalir;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem mnAgregaProductos;
     private javax.swing.JMenu mnAlmacen;
     private javax.swing.JMenuItem mnNuevaVenta;
+    private javax.swing.JMenuItem mnnuevocliente;
     // End of variables declaration//GEN-END:variables
 }
