@@ -38,9 +38,7 @@ public class ProductoDao {
             } catch (Exception e) {
                 System.out.println(e);
                 throw new Exception(e.toString());
-            }
+            }  
         }
-        
-    } 
-    
+    }
 }

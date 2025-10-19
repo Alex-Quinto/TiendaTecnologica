@@ -44,6 +44,7 @@ private void initConfig(){
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         PnlDesktop = new javax.swing.JDesktopPane();
         btnsalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -65,6 +66,8 @@ private void initConfig(){
 
         jMenu7.setText("Edit");
         jMenuBar3.add(jMenu7);
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,12 +156,6 @@ private void initConfig(){
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNuevaVentaActionPerformed
-      NuevaVentaUI nuevaventaUI = new NuevaVentaUI();
-      nuevaventaUI.setVisible(true);
-      PnlDesktop.add(nuevaventaUI);
-    }//GEN-LAST:event_mnNuevaVentaActionPerformed
-
     private void mnAgregaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAgregaProductosActionPerformed
       AgregaProductosUI agregaProductosUI = new AgregaProductosUI();
       agregaProductosUI.setVisible(true);
@@ -184,6 +181,12 @@ private void initConfig(){
     }
     }//GEN-LAST:event_btnsalirActionPerformed
 
+    private void mnNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNuevaVentaActionPerformed
+        NuevaVentaUI nuevaventaUI = new NuevaVentaUI();
+        nuevaventaUI.setVisible(true);
+        PnlDesktop.add(nuevaventaUI);
+    }//GEN-LAST:event_mnNuevaVentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +204,7 @@ private void initConfig(){
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem mnAgregaProductos;
     private javax.swing.JMenu mnAlmacen;
     private javax.swing.JMenuItem mnNuevaVenta;
