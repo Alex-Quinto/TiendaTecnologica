@@ -1,15 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.sise.TiendaTecnologica.ui;
 
+import com.sise.TiendaTecnologica.dao.ClienteDAO;
+import com.sise.TiendaTecnologica.model.Cliente;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Alex_PC
- */
+
 public class NuevoClienteUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NuevoClienteUI.class.getName());
@@ -19,6 +15,8 @@ public class NuevoClienteUI extends javax.swing.JFrame {
      */
     public NuevoClienteUI() {
         initComponents();
+        setLocationRelativeTo(null);
+        txtcodigo.setEnabled(false); // id_cliente es autogenerado
     }
 
     /**
@@ -40,7 +38,7 @@ public class NuevoClienteUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
-        txtnombre = new javax.swing.JTextField();
+        txtnombres = new javax.swing.JTextField();
         txtapepaterno = new javax.swing.JTextField();
         txtapematerno = new javax.swing.JTextField();
         txttdoc = new javax.swing.JTextField();
@@ -84,6 +82,11 @@ public class NuevoClienteUI extends javax.swing.JFrame {
         });
 
         btnnuevo.setText("Nuevo");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevoActionPerformed(evt);
+            }
+        });
 
         btnguardar.setText("Guardar");
 
@@ -111,7 +114,7 @@ public class NuevoClienteUI extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtcodigo)
-                            .addComponent(txtnombre)
+                            .addComponent(txtnombres)
                             .addComponent(txtapepaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +173,7 @@ public class NuevoClienteUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -262,6 +265,43 @@ public class NuevoClienteUI extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btncerrarActionPerformed
 
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+        // TODO add your handling code here:
+        String tipoDoc = txttdoc.getText().trim();
+        String nroDoc = txtndoc.getText().trim();
+        String nombres = txtnombres.getText().trim();
+        String apePat = txtapepaterno.getText().trim();
+        String apeMat = txtapematerno.getText().trim();
+        String correo = txtemail.getText().trim();
+        String telefono = txttelefono.getText().trim();
+
+        if (tipoDoc.isEmpty() || nroDoc.isEmpty() || nombres.isEmpty() || apePat.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar los campos obligatorios (*)");
+            return;
+        }
+
+        Cliente c = new Cliente(tipoDoc, nroDoc, nombres, apePat, apeMat, correo, telefono);
+        ClienteDAO dao = new ClienteDAO();
+
+        if (dao.registrarCliente(c)) {
+            JOptionPane.showMessageDialog(this, "Cliente registrado correctamente.");
+            limpiarCampos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar cliente.");
+        }
+    }                                        
+
+    private void limpiarCampos() {
+        txtcodigo.setText("");
+        txttdoc.setText("");
+        txtndoc.setText("");
+        txtnombres.setText("");
+        txtapepaterno.setText("");
+        txtapematerno.setText("");
+        txtemail.setText("");
+        txttelefono.setText("");
+    }//GEN-LAST:event_btnnuevoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,7 +351,7 @@ public class NuevoClienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtndoc;
-    private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtnombres;
     private javax.swing.JTextField txttdoc;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables

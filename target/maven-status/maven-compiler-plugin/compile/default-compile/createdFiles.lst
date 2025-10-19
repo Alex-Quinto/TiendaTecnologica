@@ -1,7 +1,9 @@
+com\sise\TiendaTecnologica\model\Cliente.class
 com\sise\TiendaTecnologica\ui\LoginUI.class
 com\sise\TiendaTecnologica\ui\LoginUI$2.class
 com\sise\TiendaTecnologica\ui\AgregaProductosUI$3.class
 com\sise\TiendaTecnologica\ui\NuevaVentaUI$3.class
+com\sise\TiendaTecnologica\ui\NuevoClienteUI$3.class
 com\sise\TiendaTecnologica\model\Usuario.class
 com\sise\TiendaTecnologica\dao\ProductoDao.class
 com\sise\TiendaTecnologica\ui\AgregaProductosUI$1.class
@@ -15,5 +17,6 @@ com\sise\TiendaTecnologica\ui\AgregaProductosUI$2.class
 com\sise\TiendaTecnologica\ui\NuevoClienteUI$2.class
 com\sise\TiendaTecnologica\ui\PrincipalUI$4.class
 com\sise\TiendaTecnologica\model\Producto.class
+com\sise\TiendaTecnologica\dao\ClienteDAO.class
 com\sise\TiendaTecnologica\dao\UsuarioDAO.class
 com\sise\TiendaTecnologica\utils\Alert.class
